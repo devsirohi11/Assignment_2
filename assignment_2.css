@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: inherit;
   }
-  p { font-size: 120%; color: dimgray; }
+  
   html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -53,4 +53,3 @@
   }
   
  
-  
