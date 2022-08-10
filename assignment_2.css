@@ -1,41 +1,55 @@
-:root {
-    background-color: #111;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
   }
   
   body {
-    color: white;
+    font-family: system-ui;
+    color: #555;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  Ol {
-    list-style-type: none;
-    padding: 0;
-    
-  }
-   #sub_ol{
-    list-style-type: none;
-    padding: 0;
-   }
-
-  
-  
-  
-  
-  .genre-card > div > a {
-    color: rgb(225, 120, 120);
-    font: 1em sans-serif;
+  .container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
   
-  .playlist-image {
-    max-width: 200px;
+    .company {
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    width: 30rem;
+    border-radius: 0.7rem;
+    margin: 0 3rem;
+    /* overflow: hidden; */
   }
-  #sub_div {
-    background-color: rgb(85, 9, 9);
-    color:white;
-    cursor: pointer;
-    padding: 18px;
+  
+     
+  .company__img {
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+    height: 40%;
+    object-fit: cover;
+    background-color: #eee;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
   }
+  
+  
+  
+  .images {
+    display: flex;
+  }
+  
+ 

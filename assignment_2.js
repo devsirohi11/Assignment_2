@@ -1,29 +1,31 @@
-import $ from 'jquery';
-
-const searchfield = $('#searchfield');
-const companyName=$('#companyName');
-const logo=$('#logo');
-const companyURL=$('#companyURL');
-
-
-
- searchfield.after(function(e){
-    getData(this.value);
-}); 
-
-function getData(name){
-    fetch ('https://autocomplete.clearbit.com/v1/companies/suggest?query=:' + name
-    ).then(function(response){
-        return response.json();
-    }).then(function(myJson){
-        console.log('myJson: ' , myJson);
-        render (myJson[0]);
-    }) 
+const companyContainer = document.querySelector('.logos');
+ 
+const getCompanyData = function (company) {
+    const request = new XMLHttpRequest();
+  
+    request.open( 'GET', `https://autocomplete.clearbit.com/v1/companies/suggest?query=:${company}`);
+  request.send();
+ 
+  request.addEventListener('load', function () {
+    const [data] = JSON.parse(this.responseText);
+    console.log(data);           
+                              
+   
+    const html = `
+  <article class="company">
+ <img class="company__img" src= "${data.logo}">
+ <div>
+   <p><span>Name : </span>${data.name}</p>
+   <p><span>Domain : </span>${data.domain}</p>
+ </div>
+</article>`;
+ 
+    companyContainer.insertAdjacentHTML('beforeend', html);
+    
+  });
 }
-
-
-function render(data){
-    companyName.text(data.name);
-    companyURL.text(data.domain);
-    companyLogo.attr('src',data.logo);
-}
+ 
+getCompanyData('google');
+getCompanyData('facebook');
+getCompanyData('nike');
+getCompanyData('twitter'); 
